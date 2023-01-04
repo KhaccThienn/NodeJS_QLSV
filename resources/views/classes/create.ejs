@@ -1,0 +1,50 @@
+<%- include('../layouts/header.ejs') %>
+    <div class="container p-4">
+        <div class="h3">
+            Add Class Page
+        </div>
+        <% if (typeof err !='undefined' ) { %>
+            <% err.forEach(item=> { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>
+                        <%= item.message %>
+                    </strong>
+                </div>
+
+                <% }) %>
+
+
+                    <script>
+                        $(".alert").alert();
+                    </script>
+                    <% } %>
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control rounded-0"
+                                    placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Status</label>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="status" id="" value="1"
+                                            checked>
+                                        Show
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="status" id="" value="0">
+                                        Hide
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-dark btn-block">Submit</button>
+                        </form>
+    </div>
+<%- include('../layouts/footer.ejs') %>
